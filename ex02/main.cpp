@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:12:10 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/20 20:56:00 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/21 17:01:39 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,28 @@
 
 int main()
 {
-	// const AAnimal test;
+	AAnimal *test = new Dog("TOUTOU");
+	AAnimal *test2 = new Dog("PLUTOT");
+	std::cout << std::endl;
+
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
+	std::cout << std::endl;
+
+	test2->setType("Chien");
+	std::cout << test2->getType() << std::endl;
+	test2->makeSound();
+	std::cout << std::endl;
+
+	test = test2;
+	std::cout << std::endl;
+	
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
+	std::cout << std::endl;
+
+	delete test;
+
 	const Dog a("MANGER !!");
 	const Dog b("WOAF !!");
 	std::cout << std::endl;

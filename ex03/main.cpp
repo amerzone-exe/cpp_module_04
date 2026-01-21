@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 16:57:01 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/21 17:06:46 by jpiquet          ###   ########.fr       */
+/*   Created: 2026/01/21 18:21:00 by jpiquet           #+#    #+#             */
+/*   Updated: 2026/01/21 18:35:41 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#include <iostream>
+#include "AMateria.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
-#include <string>
-
-class AAnimal
+int main( void )
 {
-	public:
-		AAnimal( void );
-		AAnimal( AAnimal const & src );
-		AAnimal & operator=( AAnimal const & rightSide );
-		virtual ~AAnimal( void );
+	Ice glace;
+	AMateria *froid = glace.clone();
 
-		std::string		getType( void ) const;
-		void			setType( std::string const & newtype );
-
-		virtual void	makeSound( void ) const = 0;
-
-	protected:
-		std::string	_type;
-};
-
-#endif
+	std::cout << "Ice glace type : " << glace.getType() << std::endl;
+	std::cout << "AMateria froid type : " << froid->getType() << std::endl;
+	
+	return 0;
+}

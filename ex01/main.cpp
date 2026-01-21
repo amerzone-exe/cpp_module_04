@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:12:10 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/20 20:52:38 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/21 13:12:26 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,70 +55,70 @@ int main()
 	std::cout << std::endl;
 
 	/*--------------ASSIGNATION--------------*/
-	// Dog a("EAT !!");
-	// Dog b("PLAY !!");
-	// std::cout << std::endl;
-
-	// std::cout << "Before assignation" << std::endl;
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	std::cout << "dog a : ";
-	// 	a.printTought(i);
-	// }
-	// std::cout << std::endl;
-
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	std::cout << "dog b : ";
-	// 	b.printTought(i);
-	// }
-	// std::cout << std::endl;
-
-	// std::cout << "Assign a to b" << std::endl;
-	// b = a;
-
-	// std::cout << "After assignation" << std::endl;
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	std::cout << "dog b : ";
-	// 	b.printTought(i);
-	// }
-	// std::cout << std::endl;
-
-	/*--------------COPY--------------*/
-
-	const Dog a("MANGER !!");
-	const Dog b("WOAF !!");
+	Dog a("EAT !!");
+	Dog b("PLAY !!");
 	std::cout << std::endl;
- 
-	std::cout << "Before copy" << std::endl;
+
+	std::cout << "Before assignation" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "Dog a : ";
+		std::cout << "dog a : ";
 		a.printTought(i);
 	}
 	std::cout << std::endl;
 
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "Dog b : ";
+		std::cout << "dog b : ";
 		b.printTought(i);
 	}
 	std::cout << std::endl;
 
-	std::cout << "Created Dog c by copying Dog a" << std::endl;
+	std::cout << "Assign a to b" << std::endl;
+	b = a;
 
-	const Dog c(a);
-	std::cout << std::endl;
-
+	std::cout << "After assignation" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "Dog c : ";
-		c.printTought(i);
+		std::cout << "dog b : ";
+		b.printTought(i);
 	}
-	c.getType();
-	c.makeSound();
 	std::cout << std::endl;
+
+	/*--------------COPY--------------*/
+
+	// const Dog a("MANGER !!");
+	// const Dog b("WOAF !!");
+	// std::cout << std::endl;
+ 
+	// std::cout << "Before copy" << std::endl;
+	// for (int i = 0; i < 10; i++)
+	// {
+	// 	std::cout << "Dog a : ";
+	// 	a.printTought(i);
+	// }
+	// std::cout << std::endl;
+
+	// for (int i = 0; i < 10; i++)
+	// {
+	// 	std::cout << "Dog b : ";
+	// 	b.printTought(i);
+	// }
+	// std::cout << std::endl;
+
+	// std::cout << "Created Dog c by copying Dog a" << std::endl;
+
+	// const Dog c(a);
+	// std::cout << std::endl;
+
+	// for (int i = 0; i < 10; i++)
+	// {
+	// 	std::cout << "Dog c : ";
+	// 	c.printTought(i);
+	// }
+	// c.getType();
+	// c.makeSound();
+	// std::cout << std::endl;
 
 	/*-------------------------------------------*/
 

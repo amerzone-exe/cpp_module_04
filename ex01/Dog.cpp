@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:56:39 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/20 20:47:50 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/21 14:55:26 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ Dog::Dog( Dog const & src ) : Animal(src)
 /*Assignation operator overload*/
 Dog & Dog::operator=( Dog const & rightSide )
 {
-	if (this->_brain != NULL)
-		delete this->_brain;
 	if (this != &rightSide)
 	{
+		if (this->_brain != NULL)
+			delete this->_brain;
 		Animal::operator=(rightSide);
 		this->_brain = new Brain();
 		*_brain = *rightSide._brain;

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 16:57:01 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/21 17:06:46 by jpiquet          ###   ########.fr       */
+/*   Created: 2026/01/21 18:04:09 by jpiquet           #+#    #+#             */
+/*   Updated: 2026/01/21 19:30:41 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
-#include <string>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class AAnimal
+class Ice : public AMateria
 {
-	public:
-		AAnimal( void );
-		AAnimal( AAnimal const & src );
-		AAnimal & operator=( AAnimal const & rightSide );
-		virtual ~AAnimal( void );
+    public:
+        Ice( void );
+		Ice( Ice const & src );
+		Ice & operator=( Ice const & rightSide );
+        ~Ice( void );
 
-		std::string		getType( void ) const;
-		void			setType( std::string const & newtype );
-
-		virtual void	makeSound( void ) const = 0;
-
-	protected:
-		std::string	_type;
+		AMateria*	clone( void ) const;
+		void		use( ICharacter & target );
+	
+	private:
 };
 
 #endif

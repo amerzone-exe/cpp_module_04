@@ -30,11 +30,6 @@ AAnimal::~AAnimal( void )
 	std::cout << "Default AAnimal destructor called" << std::endl;
 }
 
-void		AAnimal::makeSound( void ) const
-{
-	std::cout << "The " << this->_type << " make a basic animal sound...Boring" << std::endl;
-}
-
 /*Getter & setter*/
 std::string	AAnimal::getType( void ) const
 {

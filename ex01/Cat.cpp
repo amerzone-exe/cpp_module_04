@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:25:06 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/20 20:57:49 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/21 14:56:05 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ Cat::Cat( Cat const & src ) : Animal(src)
 /*Assignation operator overload*/
 Cat & Cat::operator=( Cat const & rightSide )
 {
-	if (this->_brain != NULL)
-		delete this->_brain;
 	if (this != &rightSide)
 	{
+		if (this->_brain != NULL)
+			delete this->_brain;
 		Animal::operator=(rightSide);
 		this->_brain = new Brain();
 		*_brain = *rightSide._brain;
