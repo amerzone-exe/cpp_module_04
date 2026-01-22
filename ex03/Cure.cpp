@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:04:16 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/21 20:32:00 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/22 17:03:11 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ Cure::Cure( Cure const & src ) : AMateria(src)
 Cure & Cure::operator=( Cure const & rightSide )
 {
 	if (this != &rightSide)
+	{
+		AMateria::operator=(rightSide);
+	}
 	return *this;
 }
 

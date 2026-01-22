@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:09:37 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/21 19:30:56 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/22 17:04:05 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define AMATERIA_HPP
 
 #include <string>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -23,7 +24,7 @@ class AMateria
 		AMateria( std::string const & type );
 		AMateria( AMateria const & src );
 		AMateria & operator=( AMateria const & rightSide );
-		~AMateria( void );
+		virtual ~AMateria( void );
 
 		std::string const & getType( void ) const;
 

@@ -6,11 +6,12 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:09:30 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/21 20:34:18 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/22 16:44:20 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 /*Default constructor*/

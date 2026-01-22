@@ -1,1 +1,3 @@
-obj/main.o: main.cpp inc/AMateria.hpp inc/Cure.hpp inc/Ice.hpp
+obj/main.o: main.cpp inc/IMateriaSource.hpp inc/AMateria.hpp \
+  inc/MateriaSource.hpp inc/Character.hpp inc/ICharacter.hpp \
+  inc/Cure.hpp inc/Ice.hpp

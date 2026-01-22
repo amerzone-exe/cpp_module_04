@@ -1,4 +1,4 @@
-NAME =  AbstractClass
+NAME = InterfacePoly
 
 CXX = c++
 
@@ -10,8 +10,10 @@ OBJDIR = obj/
 
 SRC =	main.cpp \
 		AMateria.cpp \
+		Character.cpp \
 		Cure.cpp \
-		Ice.cpp
+		Ice.cpp \
+		MateriaSource.cpp
 
 OBJ := $(addprefix $(OBJDIR), $(SRC:.cpp=.o))
 DEPS = $(OBJ:.o=.d)
@@ -38,4 +40,4 @@ re : fclean all
 
 .PHONY: all clean fclean re
 
--include $(DEPS)"
+-include $(DEPS)
