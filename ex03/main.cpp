@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:21:00 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/23 16:57:40 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 19:49:09 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,14 @@ int main(void)
 	std::cout << std::endl;
 
 	me->unequip(0);
+	me->unequip(1);
+	me->unequip(2);
+	me->unequip(3);
+	// me->unequip(1);
+	std::cout << std::endl;
 
 	Character::emptyTrash();
+	
 	
 	delete me;
 	delete frederic;

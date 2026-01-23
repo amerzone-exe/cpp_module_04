@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 19:38:25 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/23 18:22:10 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 19:53:04 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,31 +113,29 @@ void				Character::unequip( int idx )
 		return ;
 	}
 
-	if (_trash != NULL && *_trash != NULL)
+	if (!_wasteQuantity)
 	{
-		
+		std::cout << "HELLO" << std::endl;
+		_trash = new AMateria *[_wasteQuantity + 1];
+		this->_trash[_wasteQuantity] = this->_item[idx];
+		_wasteQuantity++;
 	}
-	AMateria** temp = _trash;
-	for (int i = 0; i <= 0; i++)
-		temp[i] = _trash[i];
-
-	std::cout << "Address of first temp : " << temp[0] << "| Address of first _trash : " << _trash[0] << std::endl;
-
-	_trash = new AMateria *[_wasteQuantity + 1];
-
-	for (int i = 0; i < _wasteQuantity; i++)
-		_trash[i] = temp[i];
-
-	for (int i = 0; i < _wasteQuantity; i++)
-		delete temp[i];
-	delete [] temp;
-
-	_wasteQuantity++;
-	this->_trash[_wasteQuantity] = this->_item[idx];
-	
+	else
+	{
+		AMateria**	temp = _trash;
+		for (int i = 0; i < _wasteQuantity; i++)
+			temp[i] = _trash[i];
+		_trash = new AMateria *[_wasteQuantity + 1];
+		for (int i = 0; i < _wasteQuantity; i++)
+			_trash[i] = temp[i];
+		for (int i = 0; i < _wasteQuantity; i++)
+			delete temp[i];
+		delete [] temp;
+		this->_trash[_wasteQuantity] = this->_item[idx];
+		_wasteQuantity++;
+	}
 	std::cout << this->_name << " : item " << idx << " of type : " << this->_item[idx]->getType() << " unequiped !" << std::endl;
 	this->_item[idx] = NULL;
-
 }
 
 void				Character::use( int idx, ICharacter & target )
