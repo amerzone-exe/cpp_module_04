@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:45:04 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 14:53:39 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 13:25:25 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class MateriaSource : public IMateriaSource
 {
-    public:
+	public:
 		MateriaSource( void );
 		MateriaSource( MateriaSource const & src );
 		MateriaSource & operator=( MateriaSource const & rightSide );
@@ -25,7 +25,7 @@ class MateriaSource : public IMateriaSource
 
 		void		learnMateria(AMateria*);
 		AMateria*	createMateria( std::string const & type );
-	
+
 	private:
 		AMateria **_materia;
 		int			isFull( void ) const;

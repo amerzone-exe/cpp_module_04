@@ -6,12 +6,15 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 19:38:25 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 15:07:29 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 18:22:10 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <iostream>
+
+AMateria**	Character::_trash = NULL;
+int			Character::_wasteQuantity = 0;
 
 /*Default constructor*/
 Character::Character( std::string name ) : _name(name)
@@ -21,7 +24,7 @@ Character::Character( std::string name ) : _name(name)
 	this->_item[1] = NULL;
 	this->_item[2] = NULL;
 	this->_item[3] = NULL;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default " << _name << " constructor called" << std::endl;
 }
 
 /*Copy constructor*/
@@ -69,6 +72,8 @@ Character::~Character( void )
 	std::cout << "Default destructor called" << std::endl;
 }
 
+
+
 std::string const &	Character::getName( void ) const
 {
 	return this->_name;
@@ -87,12 +92,16 @@ int					Character::isFull( void ) const
 void Character::equip( AMateria* m )
 {
 	int index;
-	
+
+	if (!m)
+		return ;
 	if ((index = this->isFull()) == -1)
 	{
+		delete m;
 		std::cout << "Inventory is full, can't equipe an other Materia" << std::endl;
 		return ;
 	}
+	std::cout << m->getType() << " is equiped to " << this->_name << std::endl;
 	this->_item[index] = m;
 }
 
@@ -103,8 +112,32 @@ void				Character::unequip( int idx )
 		std::cout << "This Materia doesn't exit, it can't be unequiped" << std::endl;
 		return ;
 	}
-	this->trash = this->_item[idx];
+
+	if (_trash != NULL && *_trash != NULL)
+	{
+		
+	}
+	AMateria** temp = _trash;
+	for (int i = 0; i <= 0; i++)
+		temp[i] = _trash[i];
+
+	std::cout << "Address of first temp : " << temp[0] << "| Address of first _trash : " << _trash[0] << std::endl;
+
+	_trash = new AMateria *[_wasteQuantity + 1];
+
+	for (int i = 0; i < _wasteQuantity; i++)
+		_trash[i] = temp[i];
+
+	for (int i = 0; i < _wasteQuantity; i++)
+		delete temp[i];
+	delete [] temp;
+
+	_wasteQuantity++;
+	this->_trash[_wasteQuantity] = this->_item[idx];
+	
+	std::cout << this->_name << " : item " << idx << " of type : " << this->_item[idx]->getType() << " unequiped !" << std::endl;
 	this->_item[idx] = NULL;
+
 }
 
 void				Character::use( int idx, ICharacter & target )
@@ -114,5 +147,16 @@ void				Character::use( int idx, ICharacter & target )
 		std::cout << "This Materia doesn't exit, it can't be used" << std::endl;
 		return ;
 	}
+	std::cout << this->_name << " : " << std::flush;
 	this->_item[idx]->use( target );
+}
+
+void			Character::emptyTrash( void )
+{
+	for (int i = 0; i < _wasteQuantity; i++)
+	{
+		if (_trash[i] != NULL)
+			delete _trash[i];
+	}
+	delete [] _trash;
 }

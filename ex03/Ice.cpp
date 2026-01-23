@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:04:14 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 17:04:57 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:48:25 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <iostream>
 
 /*Default constructor*/
-Ice::Ice( void )
+Ice::Ice( void ) : AMateria("ice")
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default Ice constructor called" << std::endl;
 }
 
 /*Copy constructor*/

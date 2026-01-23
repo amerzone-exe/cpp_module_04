@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:45:40 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 17:10:38 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 16:49:28 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ MateriaSource & MateriaSource::operator=( MateriaSource const & rightSide )
 /*Default destructor*/
 MateriaSource::~MateriaSource( void )
 {
+	this->deleteMateria();
 	std::cout << "Default destructor called" << std::endl;
 }
 
@@ -78,17 +79,19 @@ void		MateriaSource::learnMateria(AMateria* m)
 	int index;
 
 	if ((index = this->isFull()) == -1)
+	{
+		delete m;
 		std::cout << "Can't add an other materia" << std::endl;
+		return ;
+	}
+	std::cout << "Learn materia : " << m->getType() << " in index : " << index << std::endl;
 	this->_materia[index] = m;
 }
 
 AMateria*	MateriaSource::createMateria( std::string const & type )
 {
-	std::cout << this->_materia[0] << std::endl << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		// std::cout << this->_materia[i] << std::endl << std::endl;
-		std::cout << i << std::endl << std::endl;
 		if (this->_materia[i]->getType() == type)
 			return this->_materia[i]->clone();
 	}

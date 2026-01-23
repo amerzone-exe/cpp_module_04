@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:09:30 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 16:44:20 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 16:48:36 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 /*Default constructor*/
 AMateria::AMateria( void )
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 /*Default constructor*/
 AMateria::AMateria( std::string const & type ) : _type(type)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 /*Copy constructor*/
@@ -45,7 +45,7 @@ AMateria & AMateria::operator=( AMateria const & rightSide )
 /*Default destructor*/
 AMateria::~AMateria( void )
 {
-	std::cout << "Default destructor called" << std::endl;
+	// std::cout << "Default destructor called" << std::endl;
 }
 
 std::string const & AMateria::getType( void ) const

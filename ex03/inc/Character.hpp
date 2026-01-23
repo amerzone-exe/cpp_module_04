@@ -6,7 +6,7 @@
 /*   By: jpiquet <jpiquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 19:38:14 by jpiquet           #+#    #+#             */
-/*   Updated: 2026/01/22 16:50:21 by jpiquet          ###   ########.fr       */
+/*   Updated: 2026/01/23 16:43:17 by jpiquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ class Character : public ICharacter
 		void unequip( int idx );
 		void use( int idx, ICharacter & target );
 
-		AMateria*			trash;
+		static void			emptyTrash( void );
 
 	private:
-		std::string	_name;
-		AMateria**	_item;
-		int			isFull( void ) const;
-		void		deleteItem( void );
+		std::string			_name;
+		AMateria**			_item;
+
+		static AMateria**	_trash;
+		static int			_wasteQuantity;
+
+		int					isFull( void ) const;
+		void				deleteItem( void );
 };
 
 #endif
